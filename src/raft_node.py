@@ -146,7 +146,7 @@ class node:
                     layer_gpu = self.item["NN_gpu"][i]
                     layer_data_size = self.item["NN_data_size"][i]
 
-                    if self.updated_cpu - layer_cpu >= 0 and self.updated_gpu - layer_gpu >= 0 and self.updated_bw - layer_data_size >= 0:
+                    if self.updated_cpu - layer_cpu >= 0 and self.updated_gpu - layer_gpu >= 0 and self.updated_bw - layer_data_size + 0.1 >= 0:
                         bid["bid_cpu"].append(self.id)
                         self.updated_cpu -= layer_cpu
                         tot_cpu -= layer_cpu
@@ -170,7 +170,7 @@ class node:
                             layer_gpu = self.item["NN_gpu"][i]
                             layer_data_size = self.item["NN_data_size"][i]
 
-                            if n.updated_cpu - layer_cpu >= 0 and n.updated_gpu - layer_gpu >= 0 and n.updated_bw - layer_data_size >= 0:
+                            if n.updated_cpu - layer_cpu >= 0 and n.updated_gpu - layer_gpu >= 0 and n.updated_bw - layer_data_size + 0.1 >= 0:
                                 bid["bid_cpu"].append(n.id)
                                 n.updated_cpu -= layer_cpu
                                 tot_cpu -= layer_cpu
@@ -202,7 +202,7 @@ class node:
 
                 # Just a test
                 for n in self.server._neighbors:
-                    print(f"Follower log after handling job {job_id}: {n._log}")
+                    print(f"Follower log after handling job {job_id}: {n._log}\n")
       
                 self.q.task_done()
 

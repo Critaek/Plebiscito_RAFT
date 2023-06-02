@@ -10,6 +10,14 @@ Each NN is characterized by the required percentage of CPU, GPU, and BW for each
 When a request for an HPMLT is received, the Plebiscito protocol employs a bidding mechanism to determine the most efficient node for executing the task. 
 Multiple messages are exchanged among the nodes until a consensus is reached, ensuring that all nodes are aligned on the winner of the bid for that specific HPMLT.
 
+## RAFT
+
+RAFT is another consensus protocol, designed for distributed and synchronous resource allocation.
+
+In RAFT, we have two different phases, the first one is the leader election, where a leading node is elected. The second phase is the log replication.
+
+RAFT implementation taken from https://github.com/streed/simpleRaft
+
 ## Code
 
 To run an experiment:

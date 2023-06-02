@@ -70,6 +70,7 @@ for s in server_list:
     s.set_neighbors(server_list)
 
 # At this point, each node knows every neighbor and how many nodes are there in total
+# This last line is just to avoid changing the variable name in the other scripts
 nodes = server_list
 
 def message_data(job_id, user, num_gpu, num_cpu, duration, job_name, submit_time, gpu_type, num_inst, size, bandwidth):

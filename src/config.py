@@ -2,7 +2,7 @@
 Configuration variables module
 '''
 
-from src.node import node
+from src.raft_node import node
 import numpy as np
 import datetime
 import sys
@@ -61,8 +61,16 @@ num_clients=len(set(d["user"] for d in job_list_instance.job_list))
 #Build Topolgy
 t = topo(func_name='complete_graph', max_bandwidth=node_bw, min_bandwidth=node_bw/2,num_clients=num_clients, num_edges=num_edges)
 
-nodes = [node(row) for row in range(num_edges)]
+#Create nodes
+server_list = []
+for row in range(num_edges):
+    server_list.append(node(row))
 
+for s in server_list:
+    s.set_neighbors(server_list)
+
+# At this point, each node knows every neighbor and how many nodes are there in total
+nodes = server_list
 
 def message_data(job_id, user, num_gpu, num_cpu, duration, job_name, submit_time, gpu_type, num_inst, size, bandwidth):
     

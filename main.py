@@ -17,7 +17,7 @@ DEBUG = logging.DEBUG
 INFO = logging.INFO
 
 logging.addLevelName(TRACE, "TRACE")
-logging.basicConfig(filename='debug.log', level=INFO, format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
+logging.basicConfig(filename='debug.log', level=DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
 
 logging.debug('Clients number: ' + str(c.num_clients))
 logging.debug('Edges number: ' + str(c.num_edges))

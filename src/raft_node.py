@@ -114,6 +114,7 @@ class node:
             # If we are not the leader
             if self.q.empty() == False and not self.leader:
                 self.q.get()
+                self.q.task_done()
 
             if(self.q.empty() == False) and self.leader:
 

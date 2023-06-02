@@ -68,6 +68,7 @@ print("Run time: %s" % (time.time() - start_time))
 
 time.sleep(1) # Wait time nexessary to wait all threads to finish 
 
+"""
 for j in job_ids:
     print('\n')
     print(j)
@@ -105,3 +106,4 @@ print('Tot messages: '+str(c.counter))
 
 # print(c.t.b)
 # print(c.t.call_func())
+"""

@@ -8,6 +8,7 @@ import datetime
 import sys
 from src.dataset import JobList
 from src.topology import topo
+import threading
 
 counter = 0 #Messages counter
 req_number = int(sys.argv[1]) #Total number of requests
@@ -57,14 +58,13 @@ node_gpu = 1000000000
 
 num_clients=len(set(d["user"] for d in job_list_instance.job_list))
 
-
 #Build Topolgy
 t = topo(func_name='complete_graph', max_bandwidth=node_bw, min_bandwidth=node_bw/2,num_clients=num_clients, num_edges=num_edges)
 
 #Create nodes
 server_list = []
 for row in range(num_edges):
-    server_list.append(node(row))
+    server_list.append(node(row, node_gpu, node_cpu, t.b))
 
 for s in server_list:
     s.set_neighbors(server_list)

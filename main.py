@@ -6,9 +6,6 @@ import time
 import random
 import sys
 
-
-
-
 import time
 
 import logging
@@ -66,7 +63,7 @@ logging.info("Run time: %s" % (time.time() - start_time))
 print("Run time: %s" % (time.time() - start_time))
 
 
-time.sleep(1) # Wait time nexessary to wait all threads to finish 
+#time.sleep(2) # Wait time nexessary to wait all threads to finish 
 
 """
 for j in job_ids:

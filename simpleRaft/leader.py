@@ -60,7 +60,7 @@ class Leader(State):
             {
                 "leaderId": self._server._name,
                 "prevLogIndex": self._server._lastLogIndex,
-                "prevLogTerm": self._server._lastLogTerm,
+                "prevLogTerm": self._server._currentTerm,
                 "entries": [],
                 "leaderCommit": self._server._commitIndex,
             })
